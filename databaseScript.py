@@ -7,7 +7,7 @@ def create_table():
     conn.commit()
     conn.close()
     
-def view_table():
+def view_all():
     conn=sqlite3.connect("books.db")
     cur=conn.cursor()
     cur.execute("SELECT * FROM books")
@@ -22,6 +22,7 @@ def add_to_table(title, author, published, isbn):
     conn.commit()
     conn.close()
 
-create_table()
-add_to_table("Concrete Blonde","Michael Connelly",2010, "0316120413")
-print(view_table())
+if __name__ == "__main__":
+    create_table()
+    add_to_table("Concrete Blonde","Michael Connelly",2010, "0316120413")
+    print(view_all())
